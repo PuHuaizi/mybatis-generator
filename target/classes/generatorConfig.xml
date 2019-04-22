@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="mysqlTables" targetRuntime="MyBatis3">
+        <!-- 指定生成的java文件的编码,没有直接生成到项目时中文可能会乱码 -->
+        <property name="javaFileEncoding" value="UTF-8" />
+        <!-- 格式化java代码 -->
+        <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter" />
+        <!-- 格式化XML代码 -->
+        <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter" />
+
+        <!-- <commentGenerator type="com.huatek.manager.MyCommentGenerator"> -->
+        <commentGenerator>
+            <!-- 是否取消注释 -->
+            <property name="suppressAllComments" value="true" />
+            <!-- 是否生成注释代时间戳 -->
+            <property name="suppressDate" value="false" />
+        </commentGenerator>
+
+        <!-- 配置插件 -->
+        <jdbcConnection connectionURL="jdbc:mysql://127.0.0.1:3306/mysql_test?useUnicode=true&amp;characterEncoding=UTF-8&amp;allowPublicKeyRetrieval=true"
+            driverClass="com.mysql.cj.jdbc.Driver" userId="root" password="123456" />
+
+        <!--指定生成的类型为java类型，避免数据库中number等类型字段 -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+            <!-- 类型解析器 -->
+        </javaTypeResolver>
+
+        <!--自动生成的实体的存放包路径 -->
+        <javaModelGenerator targetPackage="com.huatek.model" targetProject="src/main/java">
+            <!-- 实体类 -->
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!--自动生成的*Mapper.xml文件存放路径 -->
+        <sqlMapGenerator targetPackage="com.huatek.mapper" targetProject="src/main/java">
+            <!-- 实体类SQL映射文件 -->
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+         <!--自动生成的*Mapper.java存放路径 -->
+        <javaClientGenerator targetPackage="com.huatek.dao" targetProject="src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <!-- 基础表 -->
+        <!-- <table tableName="tb_user" domainObjectName="User" mapperName="UserMapper" /> -->
+        <table tableName="tb_user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+            selectByExampleQueryId="false" />
+    </context>
+</generatorConfiguration>
