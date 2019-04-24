@@ -1,4 +1,4 @@
-package com.huatek;
+package com.huatek.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

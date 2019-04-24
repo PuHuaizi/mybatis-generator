@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.huatek.model.User;
 import com.huatek.service.UserService;
@@ -18,7 +19,7 @@ import com.huatek.service.UserService;
  * @date 2019年4月22日 
  */
 @Controller
-@RequestMapping("/user")
+@RequestMapping(value = "/user", method = RequestMethod.GET)
 public class UserController {
 
 	@Resource
