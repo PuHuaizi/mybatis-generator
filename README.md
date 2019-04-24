@@ -1,0 +1,2 @@
+# mybatis-generator
+Maven项目使用Mybatis-Generator插件通过逆向工程的方法自动生成Dao、Model、Mapping相关文件
