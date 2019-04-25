@@ -20,13 +20,13 @@ public class UserDaoTest extends BaseTest {
 	@Autowired
 	private UserMapper userDao;
 
-	private static final Logger logger = LogManager.getLogger(UserDaoTest.class.getName());
-
 	@Test
 	public void testSelectByPrimaryKey() {
 		System.out.println("测试Dao接口方法开始执行中······");
 		User user = userDao.selectByPrimaryKey(1);
 		System.out.println("成功获取用户名：" + user.getName());
-		logger.info("testtLog", "test");
+
+		Logger logger = LogManager.getLogger(UserDaoTest.class.getName());
+		logger.info("测试Log4J2配置文件");
 	}
 }

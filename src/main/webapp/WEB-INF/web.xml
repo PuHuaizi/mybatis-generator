@@ -9,7 +9,7 @@
         <param-value>classpath:spring/spring-*.xml</param-value>
     </context-param>
     
-    <!-- log4j2-begin -->
+    <!-- Log4j2-begin -->
     <context-param>
         <param-name>log4jConfiguration</param-name>
         <param-value>classpath:log4j2.xml</param-value>
@@ -18,7 +18,7 @@
     <listener>
         <listener-class>org.apache.logging.log4j.web.Log4jServletContextListener</listener-class>
     </listener>
-    <!-- log4j2-end -->
+    <!-- Log4j2-end -->
     
     <!-- Spring配置（监听器） -->
     <listener>
