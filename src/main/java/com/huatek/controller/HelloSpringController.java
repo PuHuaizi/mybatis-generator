@@ -18,9 +18,9 @@ public class HelloSpringController {
 	public ModelAndView showMessage(
 			@RequestParam(value = "name", required = false, defaultValue = "Spring") String name) {
 
-//		指定视图
+		// 指定视图
 		ModelAndView mv = new ModelAndView("hellospring");
-//		向视图中添加所要的展示或使用的内容，将在页面中使用
+		// 向视图中添加所要的展示或使用的内容，将在页面中使用
 		mv.addObject("message", message);
 		mv.addObject("name", name);
 		return mv;

@@ -14,7 +14,7 @@
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx.xsd">
         
-    <!-- 配置整合mybatis过程 -->
+    <!-- 配置整合MyBatis过程 -->
     
     <!-- 1、配置数据库相关参数properties的属性：${url} -->
     <context:property-placeholder location="classpath:jdbc.properties" />
@@ -39,12 +39,12 @@
     </bean>
     
 
-    <!-- 3、配置mybatis的sqlSessionFactory，将spring和mybatis整合 -->
+    <!-- 3、配置MyBatis的sqlSessionFactory，将Spring和MyBatis整合 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <!-- 自动扫描mappers.xml文件 -->
-        <property name="mapperLocations" value="classpath:mapper/*.xml" />
-        <!-- <property name="mapperLocations" value="classpath*:com/huatek/mapping/*.xml" /> -->
+        <!-- <property name="mapperLocations" value="classpath:mapper/*.xml" /> -->
+        <property name="mapperLocations" value="classpath*:com/huatek/mapper/*.xml" />
         <!-- 扫描mybatis-config文件 -->
         <property name="configLocation" value="classpath:mybatis-config.xml" />
         <!-- 扫描model包，使用别名，或者在mybatis-config中配置,二选一 -->

@@ -3,9 +3,9 @@
  */
 package com.huatek.controller;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,16 +19,20 @@ import com.huatek.service.UserService;
  * @date 2019年4月22日 
  */
 @Controller
-@RequestMapping(value = "/user", method = RequestMethod.GET)
 public class UserController {
 
-	@Resource
+	@Autowired
 	private UserService userService;
 
+	@RequestMapping(value = "/user", method = RequestMethod.GET)
 	public String toIndex(HttpServletRequest request, Model model) {
 		int userId = Integer.parseInt((request.getParameter("id")));
 		User user = this.userService.selectByPrimaryKey(userId);
-		model.addAttribute(user.getName());
+
+		model.addAttribute("name", user.getName());
+		model.addAttribute("loginName", user.getLoginName());
+		model.addAttribute("lastName", user.getLastLoginName());
+
 		return "showUser";
 	}
 }

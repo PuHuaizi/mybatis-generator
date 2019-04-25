@@ -3,6 +3,10 @@
  */
 package com.huatek.service.Impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.huatek.dao.UserMapper;
 import com.huatek.model.User;
 import com.huatek.service.UserService;
 
@@ -10,7 +14,11 @@ import com.huatek.service.UserService;
  * @author puxiongxiong
  * @date 2019年4月22日 
  */
+@Service
 public class UserServiceImpl implements UserService {
+
+	@Autowired
+	private UserMapper userDao;
 
 	@Override
 	public int deleteByPrimaryKey(Integer id) {
@@ -33,7 +41,8 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User selectByPrimaryKey(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		// 查询
+		return userDao.selectByPrimaryKey(id);
 	}
 
 	@Override

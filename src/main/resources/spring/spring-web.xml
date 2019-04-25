@@ -10,9 +10,17 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
-    <!-- 配置springmvc -->
-    <!-- 1、开启springMvc注解模式 -->
+    <!-- 配置SpringMVC -->
+    
+    <!-- 1、开启SpringMvc注解模式 -->
     <mvc:annotation-driven />
     <context:component-scan base-package="com.huatek.controller" />
+    
+    <!-- 定义跳转的文件的前后缀 ，视图模式配置 -->
+    <!-- 此处配置的作用是自动给action方法return的字符串加上前缀和后缀，生成一个可用的URL地址 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/view/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
 
 </beans>
